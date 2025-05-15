@@ -69,11 +69,11 @@ export default function Hero() {
             </div>
             <p className="text-lg md:text-xl text-gray-300/90 mb-6 leading-relaxed">
               I help small business owners go beyond the numbers—providing financial insights that
-              empower smarter decisions, improve cash flow, and drive profitability. Whether you're scaling,
+              empower smarter decisions, improve cash flow, and drive profitability. Whether you&apos;re scaling,
               strategizing, or simply seeking clarity, I bring the expertise to help you succeed.
             </p>
             <p className="text-xl md:text-2xl font-semibold text-gray-200 italic mb-8">
-              Let's build a stronger financial future together.
+              Let&apos;s build a stronger financial future together.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mt-6">
