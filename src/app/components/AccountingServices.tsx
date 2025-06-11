@@ -43,7 +43,7 @@ export default function AccountingServices() {
                 <p className="text-gray-300 text-lg leading-relaxed">
                   <span className="text-gray-400 text-sm block mb-2">*</span>
                   <span className="italic">
-                    "and no... I won't file your taxes, I'm not 'that' kind of accountant"
+                    &quot;and no... I won&apos;t file your taxes, I&apos;m not &apos;that&apos; kind of accountant&quot;
                   </span>
                   <span className="inline-block ml-2 text-yellow-400">😊</span>
                 </p>
