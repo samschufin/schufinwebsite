@@ -26,23 +26,20 @@ const accountingServiceGroups: ServiceGroup[] = [
     }
   },
   {
-    title: "Service 2",
+    title: "Software Help",
     color: "#9C27B0", // Purple color
     services: [
-      "Placeholder Service 1",
-      "Placeholder Service 2",
-      "Placeholder Service 3",
-      "Placeholder Service 4"
+      "Help you choose the right accounting/CRM/Project Mgmt software stack and build a step-by-step rollout plan",
+      "Help you integrate your business software so that your data isn't stuck in separate places"
     ]
   },
   {
-    title: "Service 3",
+    title: "Processes Improvements",
     color: "#FF9800", // Orange color
     services: [
-      "Placeholder Service 1",
-      "Placeholder Service 2",
-      "Placeholder Service 3",
-      "Placeholder Service 4"
+      "AR Invoicing & Collections Workflow",
+      "AP Bill Payment Automation & Approval Routing",
+      "Month-End Close Streamlining"
     ]
   }
 ];

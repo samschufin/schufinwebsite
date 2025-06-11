@@ -1,12 +1,40 @@
+"use client";
+
 import Navbar from './components/Navbar';
 import TrendLineAnimation from './components/TrendLineAnimation';
 import Hero from './components/Hero';
 import Services from './components/Services';
 import ServicesBanner from './components/ServicesBanner';
 import AccountingServices from './components/AccountingServices';
+import Contact from './components/Contact';
 import ScrollObserver from './components/ScrollObserver';
+import { useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 
 export default function Home() {
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const scrollTo = searchParams.get('scrollTo');
+    if (scrollTo === 'services') {
+      const servicesSection = document.getElementById('services');
+      if (servicesSection) {
+        window.scrollTo({
+          top: servicesSection.offsetTop - 100, // Adjust for navbar height
+          behavior: 'smooth',
+        });
+      }
+    } else if (scrollTo === 'contact') {
+      const contactSection = document.getElementById('contact');
+      if (contactSection) {
+        window.scrollTo({
+          top: contactSection.offsetTop - 100, // Adjust for navbar height
+          behavior: 'smooth',
+        });
+      }
+    }
+  }, [searchParams]);
+
   return (
     <>
       <TrendLineAnimation />
@@ -33,6 +61,11 @@ export default function Home() {
           <div id="accounting-services" className="min-h-screen w-full flex items-center justify-center">
             <AccountingServices />
           </div>
+        </section>
+
+        {/* Contact section */}
+        <section id="contact" className="w-full">
+          <Contact />
         </section>
       </main>
     </>

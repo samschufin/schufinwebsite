@@ -61,7 +61,7 @@ export default function Navbar() {
     );
 
     // Observe sections
-    const sections = document.querySelectorAll('#home, #services');
+    const sections = document.querySelectorAll('#home, #services, #contact');
     sections.forEach(section => {
       if (observerRef.current) {
         observerRef.current.observe(section);
@@ -134,37 +134,35 @@ export default function Navbar() {
           </div>
 
           <div className="hidden md:flex items-center space-x-10">
-            <a 
-              href="#home" 
-              onClick={scrollToSection('home')}
+            <Link 
+              href="/" 
               className={`text-gray-700 dark:text-gray-300 hover:text-[#29ABE2] dark:hover:text-[#29ABE2] font-medium transition-colors cursor-pointer ${
                 activeSection === 'home' ? 'text-[#29ABE2] dark:text-[#29ABE2] font-bold relative after:absolute after:bottom-[-6px] after:left-0 after:w-full after:h-0.5 after:bg-[#29ABE2] after:rounded-full' : ''
               }`}
             >
               Home
-            </a>
-            <a 
-              href="#services" 
-              onClick={scrollToServices}
+            </Link>
+            <Link 
+              href={{ pathname: '/', query: { scrollTo: 'services' } }}
               className={`text-gray-700 dark:text-gray-300 hover:text-[#29ABE2] dark:hover:text-[#29ABE2] font-medium transition-colors cursor-pointer ${
-                activeSection === 'services' || activeSection === 'strategic-services' || activeSection === 'accounting-services' ? 'text-[#29ABE2] dark:text-[#29ABE2] font-bold relative after:absolute after:bottom-[-6px] after:left-0 after:w-full after:h-0.5 after:bg-[#29ABE2] after:rounded-full' : ''
+                activeSection === 'services' ? 'text-[#29ABE2] dark:text-[#29ABE2] font-bold relative after:absolute after:bottom-[-6px] after:left-0 after:w-full after:h-0.5 after:bg-[#29ABE2] after:rounded-full' : ''
               }`}
             >
               Services
-            </a>
+            </Link>
             <Link 
-              href="/diagnostics" 
-              className={`text-gray-700 dark:text-gray-300 hover:text-[#29ABE2] dark:hover:text-[#29ABE2] font-medium transition-colors ${
-                pathname === '/diagnostics' ? 'text-[#29ABE2] dark:text-[#29ABE2] font-bold relative after:absolute after:bottom-[-6px] after:left-0 after:w-full after:h-0.5 after:bg-[#29ABE2] after:rounded-full' : ''
+              href={{ pathname: '/', query: { scrollTo: 'contact' } }}
+              className={`text-gray-700 dark:text-gray-300 hover:text-[#29ABE2] dark:hover:text-[#29ABE2] font-medium transition-colors cursor-pointer ${
+                activeSection === 'contact' ? 'text-[#29ABE2] dark:text-[#29ABE2] font-bold relative after:absolute after:bottom-[-6px] after:left-0 after:w-full after:h-0.5 after:bg-[#29ABE2] after:rounded-full' : ''
               }`}
             >
-              Diagnostics
+              Get in Touch
             </Link>
             {/* Debug indicator - remove in production */}
             <span className="text-xs text-gray-500 hidden">Active: {activeSection}</span>
           </div>
 
-          <div className="flex items-center space-x-5">
+          <div className="flex items-center">
             <button
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
               className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
@@ -180,14 +178,6 @@ export default function Navbar() {
                 </svg>
               )}
             </button>
-            <Link
-              href="/contact"
-              className={`bg-[#29ABE2] text-white px-6 py-2.5 rounded-full hover:bg-[#1B8DBF] transition-colors font-medium shadow-md hover:shadow-lg ${
-                pathname === '/contact' ? 'ring-2 ring-[#29ABE2] ring-offset-2 ring-offset-white dark:ring-offset-gray-950' : ''
-              }`}
-            >
-              Get in Touch
-            </Link>
           </div>
         </div>
       </div>

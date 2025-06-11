@@ -25,11 +25,31 @@ export default function AccountingServices() {
             viewport={{ once: false, amount: 0.4 }}
           >
             <p className="text-xl text-gray-300 mb-8 text-center max-w-3xl">
-            Clean, accurate, and timely financials are a must. I’ll ensure your financial records are hygienic and reliable, giving you a clear understanding of where your business stands.
+            Clean, accurate, and timely financials are a must. I'll ensure your financial records are hygienic and reliable, giving you a clear understanding of where your business stands.
             </p>
           </AnimatedElement>
 
           <AccountingServiceCarousel />
+          
+          {/* Tax Services Disclaimer Footnote */}
+          <AnimatedElement 
+            variant="fadeIn" 
+            delay={0.4} 
+            duration={0.6}
+            viewport={{ once: false, amount: 0.4 }}
+          >
+            <div className="mt-12 max-w-2xl">
+              <div className="bg-gray-800/30 border border-gray-700/50 rounded-lg p-6 text-center backdrop-blur-sm">
+                <p className="text-gray-300 text-lg leading-relaxed">
+                  <span className="text-gray-400 text-sm block mb-2">*</span>
+                  <span className="italic">
+                    "and no... I won't file your taxes, I'm not 'that' kind of accountant"
+                  </span>
+                  <span className="inline-block ml-2 text-yellow-400">😊</span>
+                </p>
+              </div>
+            </div>
+          </AnimatedElement>
         </div>
       </div>
     </div>

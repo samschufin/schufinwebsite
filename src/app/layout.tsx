@@ -1,6 +1,7 @@
 import './globals.css';
 import { Montserrat } from 'next/font/google';
 import { ThemeProvider } from 'next-themes';
+import Navbar from './components/Navbar';
 
 const montserrat = Montserrat({ 
   subsets: ['latin'],
@@ -22,6 +23,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${montserrat.className} ${montserrat.variable}`}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+          <Navbar />
           {children}
         </ThemeProvider>
       </body>
