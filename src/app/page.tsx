@@ -8,10 +8,10 @@ import ServicesBanner from './components/ServicesBanner';
 import AccountingServices from './components/AccountingServices';
 import Contact from './components/Contact';
 import ScrollObserver from './components/ScrollObserver';
-import { useEffect } from 'react';
+import { useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 
-export default function Home() {
+function SearchParamsHandler() {
   const searchParams = useSearchParams();
 
   useEffect(() => {
@@ -35,11 +35,18 @@ export default function Home() {
     }
   }, [searchParams]);
 
+  return null;
+}
+
+export default function Home() {
   return (
     <>
       <TrendLineAnimation />
       <Navbar />
       <ScrollObserver />
+      <Suspense fallback={null}>
+        <SearchParamsHandler />
+      </Suspense>
       <main className="w-full">
         <section id="home" className="w-full flex flex-col justify-start">
           <Hero />
@@ -64,7 +71,7 @@ export default function Home() {
         </section>
 
         {/* Contact section */}
-        <section id="contact" className="w-full">
+        <section id="contact" className="w-full -mt-24">
           <Contact />
         </section>
       </main>

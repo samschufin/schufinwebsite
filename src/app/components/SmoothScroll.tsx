@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, useCallback } from 'react';
 import { useScroll, useTransform, motion } from 'framer-motion';
 import Hero from './Hero';
 import Services from '@/app/components/Services';
@@ -51,6 +51,30 @@ export default function SmoothScroll() {
       setTargetScroll(containerRef.current.scrollTop);
     }
   }, []);
+  
+  // Smoothly animate to target scroll position
+  const animateScroll = useCallback(() => {
+    if (!containerRef.current) return;
+    
+    const currentScroll = containerRef.current.scrollTop;
+    const distance = targetScroll - currentScroll;
+    
+    // If we're close enough to target or distance is very small, end animation
+    if (Math.abs(distance) < 1) {
+      setIsScrolling(false);
+      return;
+    }
+    
+    // Calculate a step size that creates smooth animation
+    // Smaller step = slower scroll (we're using 5% of the remaining distance per frame)
+    const step = distance * 0.05;
+    
+    // Apply the scroll
+    containerRef.current.scrollTop += step;
+    
+    // Continue animation
+    requestAnimationFrame(animateScroll);
+  }, [targetScroll, setIsScrolling]);
   
   // Handle wheel events to create a smoother, slower scroll
   const handleWheel = (e: React.WheelEvent<HTMLDivElement>) => {
@@ -114,30 +138,6 @@ export default function SmoothScroll() {
     }
   };
   
-  // Smoothly animate to target scroll position
-  const animateScroll = () => {
-    if (!containerRef.current) return;
-    
-    const currentScroll = containerRef.current.scrollTop;
-    const distance = targetScroll - currentScroll;
-    
-    // If we're close enough to target or distance is very small, end animation
-    if (Math.abs(distance) < 1) {
-      setIsScrolling(false);
-      return;
-    }
-    
-    // Calculate a step size that creates smooth animation
-    // Smaller step = slower scroll (we're using 5% of the remaining distance per frame)
-    const step = distance * 0.05;
-    
-    // Apply the scroll
-    containerRef.current.scrollTop += step;
-    
-    // Continue animation
-    requestAnimationFrame(animateScroll);
-  };
-  
   // Add keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -167,7 +167,7 @@ export default function SmoothScroll() {
     
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [windowHeight, targetScroll, isScrolling]);
+  }, [windowHeight, targetScroll, isScrolling, animateScroll]);
 
   return (
     <div 

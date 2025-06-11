@@ -1,10 +1,8 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
 import { useCallback, useEffect, useState } from 'react';
 import AnimatedElement from './AnimatedElement';
-import { scrollToElement } from '../lib/scrollUtils';
 import { motion } from 'framer-motion';
 
 export default function Hero() {
@@ -38,6 +36,25 @@ export default function Hero() {
     });
   }, []);
 
+  // Smooth scroll function for contact section
+  const handleContactClick = useCallback((e: React.MouseEvent) => {
+    e.preventDefault();
+    
+    // Get the contact element
+    const contactElement = document.getElementById('contact');
+    if (!contactElement) return;
+    
+    // Calculate position to scroll to (accounting for navbar height)
+    const navbarHeight = 120; // Increased navbar height to ensure we scroll past it
+    const targetPosition = contactElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+    
+    // Scroll to the position
+    window.scrollTo({
+      top: targetPosition,
+      behavior: 'smooth'
+    });
+  }, []);
+
   return (
     <div id="home" className="min-h-[60vh] pt-16 pb-0 flex flex-col justify-start scroll-mt-20">
       <div className="container mx-auto px-4 md:px-8 lg:px-16 max-w-7xl mt-2">
@@ -49,7 +66,8 @@ export default function Hero() {
             viewport={{ once: false, amount: 0.4 }}
           >
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-100 mb-4 whitespace-normal lg:whitespace-nowrap">
-              Welcome to SchuFin,
+              Welcome to<br />
+              <span className="font-extrabold text-4xl md:text-5xl lg:text-6xl">Schu Financials</span>
             </h1>
             <div className="relative mb-6">
               <motion.div 
@@ -96,13 +114,13 @@ export default function Hero() {
                 <span className="absolute bottom-0 left-0 w-0 h-1 bg-[#29ABE2] transition-all duration-300 ease-out group-hover:w-full"></span>
               </button>
               
-              <Link 
-                href="/contact" 
+              <button 
+                onClick={handleContactClick}
                 className="group relative inline-flex items-center justify-center px-6 py-2.5 overflow-hidden font-medium text-[#29ABE2] bg-transparent border-2 border-[#29ABE2]/50 rounded-lg shadow-inner transition-all duration-300 ease-out hover:bg-[#29ABE2]/10 hover:border-[#29ABE2] hover:shadow-[#29ABE2]/20 hover:shadow-lg"
               >
                 <span>Get in touch</span>
                 <span className="absolute bottom-0 left-0 w-0 h-1 bg-[#29ABE2] transition-all duration-300 ease-out group-hover:w-full"></span>
-              </Link>
+              </button>
             </div>
           </AnimatedElement>
           <AnimatedElement 

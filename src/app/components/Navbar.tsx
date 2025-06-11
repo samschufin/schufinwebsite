@@ -117,15 +117,16 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 left-0 right-0 w-full z-50 bg-white/90 dark:bg-gray-950/90 backdrop-blur-md shadow-sm">
       <div className="container mx-auto px-6 py-2">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center">
-            <Link href="/" className="flex items-center" onClick={scrollToSection('home')}>
-              <div className="w-72 h-28 relative">
+        <div className="flex items-center justify-between w-full max-w-7xl mx-auto">
+          {/* Logo - Left Column */}
+          <div className="flex items-center flex-1">
+            <Link href="/" className="flex items-center ml-0" onClick={scrollToSection('home')}>
+              <div className="w-48 h-20 relative">
                 <Image
-                  src="/schufin-high-resolution-logo.png"
+                  src="/logo-no-for-dark-background.png"
                   alt="SchuFin Logo"
                   fill
-                  sizes="(max-width: 768px) 100vw, 288px"
+                  sizes="(max-width: 768px) 100vw, 192px"
                   className="object-contain"
                   priority
                 />
@@ -133,7 +134,8 @@ export default function Navbar() {
             </Link>
           </div>
 
-          <div className="hidden md:flex items-center space-x-10">
+          {/* Navigation Links - Center Column */}
+          <div className="hidden md:flex items-center space-x-10 flex-1 justify-center">
             <Link 
               href="/" 
               className={`text-gray-700 dark:text-gray-300 hover:text-[#29ABE2] dark:hover:text-[#29ABE2] font-medium transition-colors cursor-pointer ${
@@ -162,23 +164,8 @@ export default function Navbar() {
             <span className="text-xs text-gray-500 hidden">Active: {activeSection}</span>
           </div>
 
-          <div className="flex items-center">
-            <button
-              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-              aria-label="Toggle dark mode"
-            >
-              {theme === 'dark' ? (
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-                </svg>
-              ) : (
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                </svg>
-              )}
-            </button>
-          </div>
+          {/* Right Column - Empty for balance */}
+          <div className="flex-1"></div>
         </div>
       </div>
     </nav>
