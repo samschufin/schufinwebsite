@@ -13,11 +13,11 @@ export default function Contact() {
 
   const multipleChoiceOptions = [
     "I usually make business decisions based on gut instinct, but I know I should be using financial data to back them up.",
-    "I&apos;ve got questions about the future of my business.",
-    "My business is making money, but I don&apos;t have a clear picture of why, how, or how to keep it growing.",
-    "I&apos;m too busy running my business, I need help tracking my numbers.",
-    "I&apos;m finally ready to take my finances seriously and need help doing it right.",
-    "Honestly, I don&apos;t even know where to start."
+    "I've got questions about the future of my business.",
+    "My business is making money, but I don't have a clear picture of why, how, or how to keep it growing.",
+    "I'm too busy running my business, I need help tracking my numbers.",
+    "I'm finally ready to take my finances seriously and need help doing it right.",
+    "Honestly, I don't even know where to start."
   ];
 
   const handleCheckboxChange = (option: string) => {
@@ -179,7 +179,7 @@ export default function Contact() {
                 {/* Left Column - Multiple Choice Section */}
                 <div className="lg:flex-[5] flex flex-col">
                   <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
-                    What best describes where you&apos;re at right now?
+                    {"What best describes where you're at right now?"}
                   </h4>
                   
                   <div className="space-y-3">
@@ -281,7 +281,7 @@ export default function Contact() {
               {/* Status Messages */}
               {submitStatus === 'success' && (
                 <div className="text-center p-4 bg-green-100 dark:bg-green-900 border border-green-400 text-green-700 dark:text-green-200 rounded-lg">
-                  Thank you! Your message has been sent successfully. I&apos;ll get back to you soon!
+                  {"Thank you! Your message has been sent successfully. I'll get back to you soon!"}
                 </div>
               )}
               
