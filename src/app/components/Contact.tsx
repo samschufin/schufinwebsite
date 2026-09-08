@@ -79,7 +79,7 @@ export default function Contact() {
         </div>
 
         {/* Contact Options Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mb-20">
           
           {/* Send Email */}
           <div className="bg-white dark:bg-gray-800 rounded-xl p-4 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 text-center">
@@ -118,26 +118,6 @@ export default function Contact() {
               >
                 307-264-2122
               </a>
-            </div>
-          </div>
-
-          {/* Book a Meeting */}
-          <div className="bg-white dark:bg-gray-800 rounded-xl p-4 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 text-center">
-            <div className="mb-3">
-              <div className="w-12 h-12 bg-[#29ABE2] rounded-full flex items-center justify-center mx-auto mb-2">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-              </div>
-              <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1">
-                Book a Meeting
-              </h3>
-              <button 
-                className="bg-[#29ABE2] text-white px-4 py-1.5 rounded-full hover:bg-[#1B8DBF] transition-colors font-medium shadow-md hover:shadow-lg text-sm"
-                onClick={() => window.open('https://cal.com/sam.schufin', '_blank')}
-              >
-                Calendar
-              </button>
             </div>
           </div>
 
